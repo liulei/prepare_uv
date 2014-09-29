@@ -596,7 +596,7 @@ int purify_visibility_readfile(purify_visibility *vis,
   }
 
   // Allocate space for visibilities.
-  purify_visibility_alloc(vis, nvis * 2);
+  purify_visibility_alloc(vis, nvis);
 
   // Read visibilities.
   rewind(file);
@@ -654,23 +654,23 @@ int purify_visibility_readfile(purify_visibility *vis,
 	  break;
 	case 1:
 	  vis->u[i] = atof(tok);
-      vis->u[i + nvis] = -vis->u[i];
+//      vis->u[i + nvis] = -vis->u[i];
 	  break;
 	case 2:
 	  vis->v[i] = atof(tok);
-      vis->v[i + nvis] = -vis->v[i];
+//      vis->v[i + nvis] = -vis->v[i];
 	  break;
 	case 3:
 	  vis->y[i] = atof(tok);
-      vis->y[i + nvis] = vis->y[i];
+//      vis->y[i + nvis] = vis->y[i];
 	  break;
 	case 4:
 	  vis->y[i] += I * atof(tok);
-      vis->y[i + nvis] += -I * atof(tok);
+//      vis->y[i + nvis] += -I * atof(tok);
 	  break;
 	case 5:
 	  vis->noise_std[i] = (1 + I) * atof(tok) / PURIFY_SQRT2;
-	  vis->noise_std[i + nvis] = (1 - I) * atof(tok) / PURIFY_SQRT2;
+//	  vis->noise_std[i + nvis] = (1 - I) * atof(tok) / PURIFY_SQRT2;
 	  break;
 	default:
 	  break;
